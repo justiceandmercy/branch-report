@@ -1,0 +1,34 @@
+[build-system]
+requires = ['setuptools>=61']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'branch-report'
+version = '0.1.0'
+description = 'Audit git branches: find stale, merged, and divergent branches with safe cleanup suggestions.'
+readme = 'README.md'
+license = { text = 'MIT' }
+requires-python = '>=3.9'
+authors = [{ name = 'branch-report contributors' }]
+keywords = ['git', 'branches', 'cleanup', 'cli', 'audit']
+classifiers = [
+  'Development Status :: 3 - Alpha',
+  'Environment :: Console',
+  'License :: OSI Approved :: MIT License',
+  'Programming Language :: Python :: 3',
+  'Topic :: Software Development :: Version Control :: Git',
+]
+dependencies = []
+
+[project.scripts]
+branch-report = 'branch_report.cli:main'
+
+[project.optional-dependencies]
+dev = ['pytest>=7', 'ruff>=0.4']
+
+[tool.setuptools.packages.find]
+where = ['src']
+
+[tool.pytest.ini_options]
+testpaths = ['tests']
+pythonpath = ['src']
